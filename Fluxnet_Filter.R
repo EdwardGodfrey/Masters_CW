@@ -36,22 +36,6 @@ FLUXNET_Filter <- function(
       LE_F_MDS_QC    >= qc_threshold,
       P_F_QC         >= qc_threshold,
       GPP_NT_VUT_MEAN > 0
-    ) %>%
-    dplyr::mutate(
-      DATE     = as.Date(as.character(TIMESTAMP), "%Y%m%d"),
-      DOY      = as.integer(format(DATE, "%j")),
-      temp_lag_3 = dplyr::lag(TA_F_MDS, 3),
-      VPD_lag_3  = dplyr::lag(VPD_F_MDS, 3),
-      SWC_lag_3  = dplyr::lag(SWC_F_MDS_1, 3),
-      temp_lag_5 = dplyr::lag(TA_F_MDS, 5),
-      VPD_lag_5  = dplyr::lag(VPD_F_MDS, 5),
-      SWC_lag_5  = dplyr::lag(SWC_F_MDS_1, 5),
-      temp_lag_7 = dplyr::lag(TA_F_MDS, 7),
-      VPD_lag_7  = dplyr::lag(VPD_F_MDS, 7),
-      SWC_lag_7  = dplyr::lag(SWC_F_MDS_1, 7),
-      temp_lag_14 = dplyr::lag(TA_F_MDS, 14),
-      VPD_lag_14  = dplyr::lag(VPD_F_MDS, 14),
-      SWC_lag_14  = dplyr::lag(SWC_F_MDS_1, 14),
     )
 }
   
